@@ -3,6 +3,8 @@ import 'package:gofoodgreen/gofoodgreen/data/resto_data.dart';
 import 'package:gofoodgreen/gofoodgreen/model/resto_model.dart';
 import 'package:gofoodgreen/gofoodgreen/widget/main_screen_widget.dart';
 
+import '../widget/banner_widget.dart';
+
 class MainScreen extends StatefulWidget {
   MainScreen({Key? key}) : super(key: key);
 
@@ -12,10 +14,10 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  var _verticalPadding = 10.0;
-  var _horizontalPadding = 10.0;
+  var _verticalPadding = 2.5;
+  var _horizontalPadding = 2.5;
 
-  final String _alamat = "Jl. Nangka Gg. Makam Cina No 34 Oro-Oro Ombo Batu";
+  final String _alamat = "Universitas Negeri Padang";
 
   void _onTappedBottomNav(int index) {
     final scaffold = ScaffoldMessenger.of(context);
@@ -30,9 +32,11 @@ class _MainScreenState extends State<MainScreen> {
             duration: Duration(seconds: 1),
             content: Text(
               '${menuBottomNav.elementAt(index)} was clicked',
-              style: TextStyle(color: Colors.red),
+              style: TextStyle(color: Color.fromARGB(255, 61, 135, 42)),
             ),
             action: SnackBarAction(
+              backgroundColor: Color.fromARGB(255, 61, 135, 42),
+              textColor: Colors.white,
               label: 'Close',
               onPressed: scaffold.hideCurrentSnackBar,
             ),
@@ -48,18 +52,54 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: Column(
         children: [
-          // this for header
-          buildHeader(),
-          SizedBox(
-            height: 10,
-          ),
-          // to call search box
-          SearchBox(
-            paddingVertical: _verticalPadding,
-            paddingHorizontal: _horizontalPadding,
-          ),
-          SizedBox(
-            height: 10,
+          // Green background with rounded corners
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
+            child: Container(
+              color: Color.fromARGB(255, 0, 136, 12), // Green background
+              child: Column(
+                children: [
+                  buildHeader(), // Header content
+                  SizedBox(height: 10),
+                  SearchBox(
+                    paddingVertical: _verticalPadding,
+                    paddingHorizontal: _horizontalPadding,
+                  ),
+                  SizedBox(height: 10),
+                  BannerWidget(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        "GoFoodGreen",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "Eat for Earth!",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.normal,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 5)
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
           Expanded(
             child: Padding(
@@ -68,67 +108,24 @@ class _MainScreenState extends State<MainScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // call banner handler
-                    BannerWidget(),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      height: 150,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          IconCardWidget(
-                            iconAssets: 'images/icon/map.png',
-                            iconTitle: 'Terdekat',
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.05,
-                          ),
-                          IconCardWidget(
-                            iconAssets: 'images/icon/insignia.png',
-                            iconTitle: 'Rekomendasi',
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.05,
-                          ),
-                          IconCardWidget(
-                            iconAssets: 'images/icon/discount.png',
-                            iconTitle: 'Pasti Promo',
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.05,
-                          ),
-                          IconCardWidget(
-                            iconAssets: 'images/icon/favorite.png',
-                            iconTitle: 'Terfavorit',
-                          ),
-                        ],
-                      ),
-                    ),
+                    SizedBox(height: 20),
                     Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Resto Ter-Markotop',
+                            'Last Chance!',
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w900,
                             ),
                           ),
-                          SizedBox(
-                            height: 5,
-                          ),
+                          SizedBox(height: 5),
                           Text(
-                            'Hanya buat kamu, iya kamu :)',
-                            style: TextStyle(
-                              fontSize: 12,
-                            ),
+                            'Limited sale ',
+                            style: TextStyle(fontSize: 12),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
+                          SizedBox(height: 10),
                           Container(
                             height: 170,
                             width: 700,
@@ -170,9 +167,7 @@ class _MainScreenState extends State<MainScreen> {
                           SizedBox(height: 5),
                           Text(
                             'Kami cariin yang dekat dan mantap lo!',
-                            style: TextStyle(
-                              fontSize: 12,
-                            ),
+                            style: TextStyle(fontSize: 12),
                           ),
                           SizedBox(height: 15),
                           ListView.builder(
@@ -243,11 +238,11 @@ class _MainScreenState extends State<MainScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(
-              Icons.list_rounded,
-              color: Colors.black45,
-              size: 25,
-            ),
+            // Icon(
+            //   Icons.list_rounded,
+            //   color: Colors.black45,
+            //   size: 25,
+            // ),
             SizedBox(
               width: 15,
             ),
@@ -284,11 +279,11 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(
               width: 15,
             ),
-            Icon(
-              Icons.favorite_sharp,
-              color: Colors.black45,
-              size: 25,
-            )
+            // Icon(
+            //   Icons.favorite_sharp,
+            //   color: Colors.black45,
+            //   size: 25,
+            // )
           ],
         ),
       ),

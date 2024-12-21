@@ -199,52 +199,52 @@ class IconCardWidget extends StatelessWidget {
   }
 }
 
-class BannerWidget extends StatelessWidget {
-  const BannerWidget({
-    Key? key,
-  }) : super(key: key);
+// class BannerWidget extends StatelessWidget {
+//   const BannerWidget({
+//     Key? key,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 175,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: bannerDataList.length,
-        itemBuilder: (context, index) {
-          final BannerModel banner = bannerDataList[index];
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: InkWell(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(banner.bannerAssets),
-              ),
-              onTap: () {
-                final scaffold = ScaffoldMessenger.of(context);
-                scaffold.showSnackBar(
-                  SnackBar(
-                    duration: Duration(seconds: 1),
-                    content: Text(
-                      '${banner.eventName} Promo Selected!',
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.red),
-                    ),
-                    action: SnackBarAction(
-                      label: 'Ok',
-                      onPressed: scaffold.hideCurrentSnackBar,
-                    ),
-                    backgroundColor: Colors.white,
-                  ),
-                );
-              },
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 175,
+//       child: ListView.builder(
+//         scrollDirection: Axis.horizontal,
+//         itemCount: bannerDataList.length,
+//         itemBuilder: (context, index) {
+//           final BannerModel banner = bannerDataList[index];
+//           return Padding(
+//             padding: EdgeInsets.symmetric(horizontal: 10),
+//             child: InkWell(
+//               child: ClipRRect(
+//                 borderRadius: BorderRadius.circular(20),
+//                 child: Image.asset(banner.bannerAssets),
+//               ),
+//               onTap: () {
+//                 final scaffold = ScaffoldMessenger.of(context);
+//                 scaffold.showSnackBar(
+//                   SnackBar(
+//                     duration: Duration(seconds: 1),
+//                     content: Text(
+//                       '${banner.eventName} Promo Selected!',
+//                       overflow: TextOverflow.ellipsis,
+//                       style: TextStyle(color: Colors.red),
+//                     ),
+//                     action: SnackBarAction(
+//                       label: 'Ok',
+//                       onPressed: scaffold.hideCurrentSnackBar,
+//                     ),
+//                     backgroundColor: Colors.white,
+//                   ),
+//                 );
+//               },
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
 
 class SearchBox extends StatefulWidget {
   SearchBox({
@@ -253,40 +253,44 @@ class SearchBox extends StatefulWidget {
     this.paddingHorizontal,
   }) : super(key: key);
 
-  final paddingVertical;
-  final paddingHorizontal;
+  final double? paddingVertical;
+  final double? paddingHorizontal;
 
   @override
   _SearchBoxState createState() => _SearchBoxState();
 }
 
 class _SearchBoxState extends State<SearchBox> {
-  TextEditingController _textEditingController = new TextEditingController();
+  TextEditingController _textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Color.fromARGB(255, 0, 135, 42), // Match the green background
+      padding: EdgeInsets.symmetric(vertical: widget.paddingVertical ?? 5),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: widget.paddingHorizontal),
-        child: new Card(
-          child: new ListTile(
-            leading: new Icon(Icons.search),
+        padding:
+            EdgeInsets.symmetric(horizontal: widget.paddingHorizontal ?? 5),
+        child: Card(
+          color: Colors.white, // Background of the search box itself
+          shape: RoundedRectangleBorder(
+            borderRadius:
+                BorderRadius.circular(15), // Rounded corners for the Card
+          ),
+          child: ListTile(
+            leading: Icon(Icons.search, color: Colors.grey),
             title: TextField(
               controller: _textEditingController,
-              decoration: new InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Mau Makan Apa Hari ini?',
                 border: InputBorder.none,
-                fillColor: Colors.black,
               ),
             ),
-            trailing: new IconButton(
+            trailing: IconButton(
               onPressed: () {
                 _textEditingController.clear();
               },
-              icon: new Icon(
-                Icons.cancel,
-                size: 18,
-              ),
+              icon: Icon(Icons.cancel, size: 18, color: Colors.grey),
             ),
           ),
         ),
