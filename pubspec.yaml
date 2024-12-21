@@ -1,0 +1,52 @@
+name: gofoodgreen
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/GoCar.png
+    - assets/images/GoFood.png
+    - assets/images/GoMart.png
+    - assets/images/GoPulsa.png
+    - assets/images/GoRide.png
+    - assets/images/GoSend.png
+    - assets/images/gocluppoinbar.png
+    - assets/images/GO-CLUB1.png
+    - assets/images/icon gofood flat.png
+    - assets/images/icon voucher.png
+    - assets/images/driver1.jpeg
+    - assets/images/driver2.jpeg
+    - assets/images/beranda.png
+    - assets/images/chat.png
+    - assets/images/promo.png
+    - assets/images/pesanan.png
+    - assets/images/banner.png
+    - assets/images/GoFoodGreen.jpg
+    - images/banner/
+    - images/icon/
+    - images/kuliner/
+    - images/resto/
+
+  fonts:
+  - family: Roboto
+    fonts:
+      - asset: fonts/Roboto-Regular.ttf
+      - asset: fonts/Roboto-Bold.ttf
+      - weight: 900
