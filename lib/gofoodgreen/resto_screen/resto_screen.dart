@@ -93,68 +93,71 @@ class RestoScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     Container(
-                      height: 60,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          // rating
-                          RestoReviewWidget(
-                            keterangan: '${data.restoJudges} Rating',
-                            iconsValue: '${data.restoRating}',
-                            iconsColor: Colors.orange,
-                            icons: Icons.star,
-                          ),
-                          VerticalDivider(
-                            color: Colors.black54,
-                            thickness: 0.6,
-                            width: 25,
-                          ),
-                          // jarak
-                          RestoReviewWidget(
-                            keterangan: 'Jarak',
-                            iconsValue: '${data.restoDistance} km',
-                            iconsColor: Colors.redAccent[700],
-                            icons: Icons.location_on,
-                          ),
-                          VerticalDivider(
-                            color: Colors.black54,
-                            thickness: 0.6,
-                            width: 25,
-                          ),
-                          // Harga
-                          RestoReviewWidget(
-                            keterangan: 'Harga',
-                            iconsValue: '< ${data.restoEstPrice}',
-                            iconsColor: Colors.redAccent[700],
-                            icons: Icons.monetization_on,
-                          ),
-                          VerticalDivider(
-                            color: Colors.black54,
-                            thickness: 0.6,
-                            width: 25,
-                          ),
-                          // Rasa
-                          RestoReviewWidget(
-                            keterangan: '100+ rating',
-                            iconsValue: 'Rasa Mantap',
-                            iconsColor: Colors.redAccent[700],
-                            icons: Icons.thumb_up,
-                          ),
-                          VerticalDivider(
-                            color: Colors.black54,
-                            thickness: 0.6,
-                            width: 25,
-                          ),
-                          RestoReviewWidget(
-                            keterangan: '100+ rating',
-                            iconsValue: 'Porsi Kuli',
-                            iconsColor: Colors.redAccent[700],
-                            icons: Icons.rice_bowl_rounded,
-                          ),
-                        ],
+                      height: 70,
+                      child: Expanded(
+                        // Wrap ListView with Expanded
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            // rating
+                            RestoReviewWidget(
+                              keterangan: '${data.restoJudges} Rating',
+                              iconsValue: '${data.restoRating}',
+                              iconsColor: Colors.orange,
+                              icons: Icons.star,
+                            ),
+                            VerticalDivider(
+                              color: Colors.black54,
+                              thickness: 0.6,
+                              width: 25,
+                            ),
+                            // jarak
+                            RestoReviewWidget(
+                              keterangan: 'Jarak',
+                              iconsValue: '${data.restoDistance} km',
+                              iconsColor: Colors.redAccent[700],
+                              icons: Icons.location_on,
+                            ),
+                            VerticalDivider(
+                              color: Colors.black54,
+                              thickness: 0.6,
+                              width: 25,
+                            ),
+                            // Harga
+                            RestoReviewWidget(
+                              keterangan: 'Harga',
+                              iconsValue: '< ${data.restoEstPrice}',
+                              iconsColor: Colors.redAccent[700],
+                              icons: Icons.monetization_on,
+                            ),
+                            VerticalDivider(
+                              color: Colors.black54,
+                              thickness: 0.6,
+                              width: 25,
+                            ),
+                            // Rasa
+                            RestoReviewWidget(
+                              keterangan: '100+ rating',
+                              iconsValue: 'Rasa Mantap',
+                              iconsColor: Colors.redAccent[700],
+                              icons: Icons.thumb_up,
+                            ),
+                            VerticalDivider(
+                              color: Colors.black54,
+                              thickness: 0.6,
+                              width: 25,
+                            ),
+                            RestoReviewWidget(
+                              keterangan: '100+ rating',
+                              iconsValue: 'Porsi Kuli',
+                              iconsColor: Colors.redAccent[700],
+                              icons: Icons.rice_bowl_rounded,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Text(
                       'Menu Cuma Buat Kamu',
                       style: TextStyle(

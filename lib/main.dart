@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart'; // Import the google_fonts package
 
 import 'screens/screens.dart';
 
@@ -9,9 +10,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NavScreen(),
+      home: const NavScreen(),
+      theme: ThemeData(
+        // Set the default font family to Poppins for all text in the app
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context)
+              .textTheme, // Apply Poppins to the existing text themes
+        ),
+      ),
     );
   }
 }

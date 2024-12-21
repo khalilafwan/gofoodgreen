@@ -84,11 +84,11 @@ class _RatingState extends State<Rating> {
                           ),
                           Text(
                             'Geprek Sambelan Cak Tek, Gubeng',
-                            style: TextStyle(fontSize: 13),
+                            style: TextStyle(fontSize: 11),
                           ),
                           Text(
                             'Today, 11.16',
-                            style: TextStyle(fontSize: 13),
+                            style: TextStyle(fontSize: 11),
                           ),
                         ],
                       ),
@@ -237,11 +237,11 @@ class _RatingState extends State<Rating> {
                           ),
                           Text(
                             'Geprek Sambelan Cak Tek, Gubeng',
-                            style: TextStyle(fontSize: 13),
+                            style: TextStyle(fontSize: 11),
                           ),
                           Text(
                             'Today, 11.16',
-                            style: TextStyle(fontSize: 13),
+                            style: TextStyle(fontSize: 11),
                           ),
                         ],
                       ),

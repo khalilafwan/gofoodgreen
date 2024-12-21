@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gofoodgreen/gofoodgreen/data/resto_data.dart';
 import 'package:gofoodgreen/gofoodgreen/model/resto_model.dart';
 import 'package:gofoodgreen/gofoodgreen/widget/main_screen_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widget/banner_widget.dart';
 
@@ -77,20 +78,24 @@ class _MainScreenState extends State<MainScreen> {
                     children: [
                       Text(
                         "GoFoodGreen",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 5),
                       Text(
                         "Eat for Earth!",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.normal,
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -254,13 +259,14 @@ class _MainScreenState extends State<MainScreen> {
                     children: [
                       Text(
                         'Dikirim ke',
-                        style: TextStyle(
-                          fontSize: 12,
+                        style: GoogleFonts.poppins(
+                          textStyle:
+                              TextStyle(fontSize: 12, color: Colors.white),
                         ),
                       ),
                       Icon(
                         Icons.arrow_drop_down,
-                        color: Colors.red,
+                        color: Colors.white,
                         size: 18,
                       ),
                     ],
@@ -268,9 +274,11 @@ class _MainScreenState extends State<MainScreen> {
                   Text(
                     _alamat,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   )
                 ],
