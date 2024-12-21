@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gofoodgreen/gofoodgreen/main_screen/gfg_main_screen.dart';
-import 'package:gofoodgreen/screens/gofoodgreen/menu_gfg.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({Key? key}) : super(key: key);
